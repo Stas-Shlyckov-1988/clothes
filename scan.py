@@ -6,12 +6,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 import cv2
+import sys
 
 fashion_mnist = tf.keras.datasets.fashion_mnist
 
 (train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
 
-img = cv2.imread("i.png", cv2.IMREAD_GRAYSCALE)
+filename = sys.argv[1:]
+img = cv2.imread(filename[0], cv2.IMREAD_GRAYSCALE)
 
 class_names = ['Футболка/топ', 'Брюки', 'Свитор', 'Кофта', 'Пальто',
                'Сандал', 'Рубашка', 'Кроссовки', 'Сумка', 'Ботильоны']
@@ -137,7 +139,7 @@ plt.tight_layout()
 plt.show()
 
 # Возьмите изображение из тестового набора данных.
-img = cv2.imread("i.png", cv2.IMREAD_GRAYSCALE)
+img = cv2.imread(filename[0], cv2.IMREAD_GRAYSCALE)
 #img = test_images[1]
 
 print(img.shape)
